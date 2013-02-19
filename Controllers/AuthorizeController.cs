@@ -23,7 +23,7 @@ namespace AuthorizeSample.Controllers
             var response = new AuthorizeNet.SIMResponse(post);
             var isValid = response.Validate(Utilities.TransactionKey, Utilities.ApiLoginID);
             if (!isValid)
-                return Redirect("/");
+                return Redirect("/Authorize/Status?m=failed");
             var returnUrl = Utilities.SiteUrl + "/Authorize/Status?m=" + response.Message;
             return Content(AuthorizeNet.Helpers.CheckoutFormBuilders.Redirecter(returnUrl));
 
