@@ -14,7 +14,7 @@
     <div>
         @{
 
-            Html.BeginSIMForm( Utilities.SiteUrl + "/home/sim", 1.99M, Utilities.ApiLoginID, Utilities.TransactionKey, true);
+            Html.BeginSIMForm( Utilities.SiteUrl + "/Authorize/Sim", 1.99M, Utilities.ApiLoginID, Utilities.TransactionKey, true);
             
                 @Html.Raw(Html.CheckoutFormInputs(true))
                 @Html.Raw(Html.Hidden("order_id", "1234"))
