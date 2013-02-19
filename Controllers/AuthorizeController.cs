@@ -21,7 +21,7 @@ namespace AuthorizeSample.Controllers
         public ActionResult Sim(FormCollection post)
         {
             var response = new AuthorizeNet.SIMResponse(post);
-            var isValid = response.Validate(Utilities.TransactionKey, Utilities.ApiLoginID);
+            var isValid = response.Validate(Utilities.MerchantHash, Utilities.ApiLoginID);
             if (!isValid)
                 return Redirect("/Authorize/Status?m=failed");
             var returnUrl = Utilities.SiteUrl + "/Authorize/Status?m=" + response.Message;
