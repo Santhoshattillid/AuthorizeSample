@@ -1,0 +1,27 @@
+﻿@using AuthorizeNet.Helpers
+@using AuthorizeSample
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @{
+
+            Html.BeginSIMForm( Utilities.SiteUrl + "/home/sim", 1.99M, Utilities.ApiLoginID, Utilities.TransactionKey, true);
+            
+                @Html.Raw(Html.CheckoutFormInputs(true))
+                @Html.Raw(Html.Hidden("order_id", "1234"))
+                <input type="submit" value="Pay" />
+            
+            Html.EndForm();
+        }
+    </div>
+</body>
+</html>
